@@ -9,7 +9,7 @@ function insertbibleverse_admin_init(){
 
 	add_settings_field( 
 		'ibv_translations', 
-		__( 'Installed translation:', 'insertbibleverse' ), 
+		__( 'Installed translation:', 'insert-bible-verse' ), 
 		'ibv_translations_settings_field', 
 		'writing', 
 		'insertbibleverse_section'
@@ -17,7 +17,7 @@ function insertbibleverse_admin_init(){
 	
 	add_settings_field(
 		'ibv_translation',
-		__( 'Translation:', 'insertbibleverse' ),
+		__( 'Translation:', 'insert-bible-verse' ),
 		'insertbibleverse_default_translation_settings_field',
 		'writing', 
 		'insertbibleverse_section'
@@ -50,10 +50,10 @@ function ibv_translations_settings_field(){
 				printf(
 					'<p>%s <span class="description">%s | <a href="#" class="ibv-uninstall-bible" data-translation="%s" data-nonce="%s">%s</a></span></p>',
 					$translation['label'],
-					__( 'Installed.', '' ),
+					__( 'Installed.', 'insert-bible-verse' ),
 					esc_attr( $key ),
 					esc_attr( wp_create_nonce( 'uninstall-translation-'.$key ) ),
-					__( 'Uninstall.', '' )
+					__( 'Uninstall.', 'insert-bible-verse' )
 				);
 			}else{
 				global $wpdb;
@@ -75,8 +75,8 @@ function ibv_translations_settings_field(){
 					esc_attr( strtolower( $key ) ),
 					esc_attr( $percent ),
 					esc_attr( wp_create_nonce( 'install-translation-'.$key ) ),
-					__( 'Install.', '' ),
-					__( 'This may take a few minutes. If you close the window you can always continue it later.', '' )
+					__( 'Install.', 'insert-bible-verse' ),
+					__( 'This may take a few minutes. If you close the window you can always continue it later.', 'insert-bible-verse' )
 				);
 			}
 			
@@ -118,7 +118,7 @@ function insertbibleverse_default_translation_settings_field(){
 
 // Add settings link on plugin page
 function ibv_plugin_settings_link( $links ) {
-	$settings_link = sprintf( '<a href="options-writing.php#ibv-settings">%s</a>', __( 'Settings', '' ) );
+	$settings_link = sprintf( '<a href="options-writing.php#ibv-settings">%s</a>', __( 'Settings', 'insert-bible-verse' ) );
 	array_unshift( $links, $settings_link );
 	return $links;
 }

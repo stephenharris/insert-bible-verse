@@ -6,7 +6,7 @@ function ibv_load_bible_ajax_handler(){
 	
 	if( !current_user_can( 'manage_bible_translations' ) ){
 		wp_send_json_error(array(
-			'message' => __( 'You do not have permission to do install bible translations', '' )
+			'message' => __( 'You do not have permission to do install bible translations', 'insert-bible-verse' )
 		));
 	}
 	
@@ -15,7 +15,7 @@ function ibv_load_bible_ajax_handler(){
 	
 	if( !wp_verify_nonce( $nonce, 'install-translation-'.$key ) ){
 		wp_send_json_error(array(
-			'message' => __( 'Are you sure?', '' )
+			'message' => __( 'Are you sure?', 'insert-bible-verse' )
 		));		
 	}
 
@@ -24,7 +24,7 @@ function ibv_load_bible_ajax_handler(){
 	
 	if( !isset( $translations[$key] ) ){
 		wp_send_json_error(array(
-			'message' => __( 'Translation not found', '' )
+			'message' => __( 'Translation not found', 'insert-bible-verse' )
 		));
 	}
 	
@@ -34,7 +34,7 @@ function ibv_load_bible_ajax_handler(){
 		
 	if( get_site_option( $lock ) ){
 		wp_send_json_error(array(
-				'message'   => __( 'Locked', '' )
+				'message'   => __( 'Locked', 'insert-bible-verse' )
 		));
 	}
 
@@ -50,7 +50,7 @@ function ibv_load_bible_ajax_handler(){
 	if( !file_exists( $translation['src'] ) ){
 		delete_site_option( $lock );
 		wp_send_json_error(array(
-				'message'   => __( 'Source file not found', '' ),
+				'message'   => __( 'Source file not found', 'insert-bible-verse' ),
 		));
 	}
 
@@ -70,7 +70,7 @@ function ibv_load_bible_ajax_handler(){
 	wp_send_json_success(array(
 		'verses'   => ( $offset + $batch_size ),
 		'percent'  => $percent,
-		'feedback' => sprintf( __( 'Installing %s...', '' ), ucwords( $last['book'] ) )
+		'feedback' => sprintf( __( 'Installing %s...', 'insert-bible-verse' ), ucwords( $last['book'] ) )
 	));
 
 }
@@ -83,7 +83,7 @@ function ibv_uninstall_bible_ajax_handler(){
 	
 	if( !current_user_can( 'manage_bible_translations' ) ){
 		wp_send_json_error(array(
-			'message' => __( 'You do not have permission to do uninstall bible translations', '' )
+			'message' => __( 'You do not have permission to do uninstall bible translations', 'insert-bible-verse' )
 		));
 	}
 	
@@ -92,7 +92,7 @@ function ibv_uninstall_bible_ajax_handler(){
 	
 	if( !wp_verify_nonce( $nonce, 'uninstall-translation-'.$key ) ){
 		wp_send_json_error(array(
-				'message' => __( 'Are you sure?', '' )
+				'message' => __( 'Are you sure?', 'insert-bible-verse' )
 		));
 	}
 
@@ -101,7 +101,7 @@ function ibv_uninstall_bible_ajax_handler(){
 	
 	if( !isset( $translations[$key] ) ){
 		wp_send_json_error(array(
-			'message' => __( 'Translation not found', '' )
+			'message' => __( 'Translation not found', 'insert-bible-verse' )
 		));
 	}
 	
@@ -109,7 +109,7 @@ function ibv_uninstall_bible_ajax_handler(){
 	
 	if( get_site_option( $lock ) ){
 		wp_send_json_error(array(
-				'message'   => __( 'Locked', '' )
+				'message'   => __( 'Locked', 'insert-bible-verse' )
 		));
 	}
 

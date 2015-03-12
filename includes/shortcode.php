@@ -45,7 +45,7 @@ function bible_verse_shortcode_preview_handler(){
 	$nonce     = ! empty( $_POST['nonce'] ) ? $_POST['nonce'] : null;
 	
 	if ( ! current_user_can( 'edit_post', $post_id ) || ! wp_verify_nonce( $nonce, 'bibleverse-shortcode-ui-preview' ) ) {
-		echo esc_html__( 'You do not have permission to preview bible verses', 'shortcode-ui' );
+		echo esc_html__( 'You do not have permission to preview bible verses', 'insert-bible-verse' );
 		exit;
 	}
 	
