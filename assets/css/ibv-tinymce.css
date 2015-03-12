@@ -1,0 +1,54 @@
+.mce-i-bible:before{
+	font: normal 20px/1 "ebenezer" !important;
+	content: '\e601';
+}
+.mceIcon.mce_insert_verse:before{
+	font-family: 'ebenezer' !important;
+  	content: '\e601';
+}
+
+.dashicons.dashicons-bible:before {
+  font-family: 'ebenezer' !important;
+  content: "\e601"; }
+
+.bible-verse-shortcode-modal{
+	right:30%;
+	left:30%;
+	top:30%;
+	bottom:30%;
+}
+.bible-verse-shortcode-modal .media-modal-content{
+	min-height:200px;
+	height:200px;
+}
+.bible-verse-shortcode-settings {
+	text-align: center;
+	padding: 20px;
+}
+
+#ibv-verse-field{
+	padding: 5px 5px 4px 5px;
+	vertical-align: bottom;
+	margin-top: 3px;
+}
+
+#ibv-verse-field,
+#ibv-chapter-field,
+#ibv-book-field{
+	font-size:16px;
+	line-height:32px;
+	height:32px;
+}
+
+.bible-verse-shortcode-view{
+    border: 1px dashed #888;
+    text-align:center;
+}
+.bible-verse-shortcode-view p{
+    font-family: 'Open Sans Pro', Helvetica, sans-serif;'
+    font-weight: 800;
+}
+.bible-verse-shortcode-view img{
+	margin: auto;
+	display: block;
+}

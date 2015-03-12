@@ -1,0 +1,20 @@
+blockquote.bible-verse-text,
+blockquote.bible-verse-text cite{
+	font-size:inherit;		
+}
+
+.qtip-bible-verse span.verse-num,
+.bible-verse-text span.verse-num,
+.qtip-bible-verse span.chapter-num,
+.bible-verse-text span.chapter-num {
+	font-size: 80%;
+	padding-right: .15em;
+	padding-left: .25em;
+	vertical-align: top;
+	font-weight:400;
+}
+
+.bible-verse-text{
+	cursor: pointer;
+}
+	

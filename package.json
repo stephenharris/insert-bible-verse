@@ -1,0 +1,32 @@
+{
+  "name": "insert-bible-verse",
+  "title": "Insert Bible Verse",
+  "description": "Allows you to insert any bible verse via a tinyMCE button.",
+  "version": "0.1.0",
+  "homepage": "http://stephenharris.info",
+  "author": {
+    "name": "Stephen Harris",
+    "email": "contact@stephenharris.info",
+    "url": "http://stephenharris.info"
+  },
+  "devDependencies": {
+  	"jshint-stylish": "~0.1.3",
+    "grunt": "~0.4.1",
+	"grunt-checkbranch": "~0.2.2",
+	"grunt-checkrepo": "~0.1.0",
+	"grunt-checktextdomain": "~0.1.0",
+    "grunt-checkwpversion": "~0.2.0",
+    "grunt-contrib-uglify": "~0.1.1",
+    "grunt-contrib-cssmin": "~0.6.0",
+    "grunt-contrib-jshint": "~0.6.3",
+    "grunt-contrib-clean": "~0.5.0",
+    "grunt-contrib-copy": "~0.4.1",
+    "grunt-contrib-compress": "~0.5.2",
+    "grunt-po2mo": "~0.1.0",
+    "grunt-pot": "~0.1.0",
+    "grunt-wp-deploy": "~1.0.3",
+    "grunt-wp-readme-to-markdown": "~0.5.0",
+    "load-grunt-tasks": "~0.2.0"
+  },
+  "keywords": []
+}
