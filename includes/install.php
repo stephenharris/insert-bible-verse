@@ -90,7 +90,7 @@ function ibv_load_bible_manual( $key, $offset, $batch_size ){
 
 		while( ( $verse = fgets( $handle ) ) !== false ) {
 
-			$verse = explode( "\t", $verse );  // assuming that fields are separated with semicolons
+			$verse = explode( "\t", $verse );
 
 			$row++;
 
