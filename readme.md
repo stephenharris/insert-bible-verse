@@ -2,7 +2,7 @@
 **Contributors:** stephenharris  
 **Donate link:** http://stephenharris.info  
 **Tags:** bible,verse,scripture,tinymce,esv,net,kjv,web,asv,wbt,ylt  
-**Requires at least:** 3.8  
+**Requires at least:** 4.1.0  
 **Tested up to:** 4.1.1  
 **Stable tag:** 0.1.0  
 **License:** GPLv2 or later  
