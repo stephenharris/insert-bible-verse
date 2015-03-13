@@ -50,7 +50,14 @@ function ibv_load_bible_ajax_handler(){
 	if( !file_exists( $translation['src'] ) ){
 		delete_site_option( $lock );
 		wp_send_json_error(array(
-				'message'   => __( 'Source file not found', 'insert-bible-verse' ),
+			'message'   => __( 'Source file not found', 'insert-bible-verse' ),
+		));
+	}
+	
+	if( !is_readable( $translation['src'] ) ){
+		delete_site_option( $lock );
+		wp_send_json_error(array(
+			'message'   => __( 'Source file is not readable', 'insert-bible-verse' ),
 		));
 	}
 
