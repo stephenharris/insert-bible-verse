@@ -52,11 +52,11 @@ function ibv_register_buttons( $buttons ) {
 	return $buttons;
 }
 
-function bibleverse_verse_selection_dialog(){
+function bibleverse_verse_selection_dialog( $tinymce ){
 	
 	$data = json_decode( file_get_contents( BIBLEVERSE_DIR . 'assets/scripture/bible-data.json' ), true );
 	
-	$output = 'var bibleverse = ' . wp_json_encode( array( 
+	$output = 'var bibleverse = ' . json_encode( array( 
 		'scripture'  => $data,
 		'nonce'      => wp_create_nonce( 'bibleverse-shortcode-ui-preview' ),
 		'stylesheet' => BIBLEVERSE_URL . 'assets/css/ibv-frontend.css',
