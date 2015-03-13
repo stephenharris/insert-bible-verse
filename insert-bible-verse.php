@@ -52,7 +52,7 @@ function ibv_init() {
 	
 	global $wpdb;
 
-	$wpdb->bible = "{$wpdb->prefix}bible";
+	$wpdb->bible = "{$wpdb->base_prefix}bible";
 
 	$version = defined( 'BIBLEVERSE_VERSION' ) ? BIBLEVERSE_VERSION : false;
 	$ext     = (defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG) ? '' : '.min';
