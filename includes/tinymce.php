@@ -23,7 +23,7 @@ function ibv_load_editor_stylesheet( $editor_styles ){
 	if( empty( $editor_styles['content_css'] ) ){
 		$editor_styles['content_css'] = '';
 	}
-	$editor_styles['content_css'] .= ',' . BIBLEVERSE_URL.'assets/css/ibv-font-icons.css';
+	$editor_styles['content_css'] .= ',' . BIBLEVERSE_URL.'assets/css/ibv-font-icons.css,' . BIBLEVERSE_URL.'assets/css/ibv-tinymce.css';
 	
 	return $editor_styles;
 }

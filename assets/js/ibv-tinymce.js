@@ -181,74 +181,64 @@
 
 	thingMce = {
 
-		View: {
-			
-			shortcodeHTML: false,
-			
-			className: 'editor-bible-verse',
-			
-			//fetch: function() {},
-			initialize: function( options ) {
-				this.shortcode = options.shortcode;
-			},
-			
-			setHtml: function( body ) {
-				this.shortcodeHTML = body;
-				var stylesheet = '<link rel="stylesheet" id="bible-verse-frontend-css" href="' + bibleverse.stylesheet + '" type="text/css" media="all">';
-				this.shortcodeHTML = this.shortcodeHTML + stylesheet;
-				this.render( true );
-				return;
-			},
-				
-			getHtml: function() {
+		getContent: function() {
 				var data;
-
-				if ( false === this.shortcodeHTML ) {
+				
+				if ( !this.content ) {
 					data = {
 						action: 'bibleverse_do_shortcode',
 						post_id: $('#post_ID').val(),
 						shortcode: this.shortcode.string(),
 						nonce: bibleverse.nonce
 					};
-					$.post( ajaxurl, data, $.proxy( this.setHtml, this ) );
+					$.post( ajaxurl, data, $.proxy( this.ajaxListener, this ) );
 
 				}
 				
-				return this.shortcodeHTML;
+				return this.content;
 	
-			},
-			
-			loadingPlaceholder: function() {
-				return '' +
-					'<div class="loading-placeholder">' +
-						'<div class="dashicons dashicons-bible"></div>' +
-						'<div class="wpview-loading"><ins></ins></div>' +
-					'</div>';
-			},
-
 		},
 
-		edit: function( node ) {
-			var self = this, frame, data;
+		ajaxListener: function( content ){
+			var stylesheet = '<link rel="stylesheet" id="bible-verse-frontend-css" href="' + bibleverse.stylesheet + '" type="text/css" media="all">';
+			content = content + stylesheet;
+			this.setContent( content );
+		},
+		
+		setLoader: function() {
+			this.setContent(
+				'<div class="loading-placeholder">' +
+					'<div class="dashicons dashicons-bible"></div>' +
+					'<div class="wpview-loading"><ins></ins></div>' +
+				'</div>'
+			);
+		},
 
-			data = window.decodeURIComponent( $( node ).attr('data-wpview-text') );
-			frame = thing.edit( data );
-			frame.state('bible-verse').on( 'update', function( selection ) {
-				self.shortcodeHTML = false;
-				var shortcode = thing.shortcode( selection ).string();
-				$( node ).attr( 'data-wpview-text', window.encodeURIComponent( shortcode ) );
-				wp.mce.views.refreshView( self, shortcode, true );
-				
-				frame.detach();
-			});
-			frame.open();
-			frame.$el.parents('.media-modal').addClass('bible-verse-shortcode-modal');
+		edit: function( text, update ) {
+			var self = this;
+				var data = window.decodeURIComponent( text );
+				var frame = thing.edit( data );
+				frame.state('bible-verse').on( 'update', function( selection ) {
+
+					self.shortcode = new wp.shortcode({
+						tag: 'bible_verse',
+						attrs: selection,
+						content: false,
+					});
+					
+					update( self.shortcode.string() );
+					self.render( true );
+					frame.detach();
+				});
+				frame.open();
+				frame.$el.parents('.media-modal').addClass('bible-verse-shortcode-modal');
+	
 		}
 	};
 	
 	wp.mce.views.register(
 		'bible_verse',
-		$.extend( true, {}, thingMce )
+		$.extend( {}, thingMce )
 	);
 		
 	tinymce.create('tinymce.plugins.insert_verse', {
@@ -260,7 +250,6 @@
 					frame.state('bible-verse').on( 'update', function( selection ) {
 						var shortcode = thing.shortcode( selection ).string();
 						tinymce.execCommand('mceInsertContent', false, shortcode);
-						wp.mce.views.refreshView( thingMce, shortcode );
 						frame.detach();
 					});
 					frame.open();
