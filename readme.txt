@@ -2,8 +2,8 @@
 Contributors: stephenharris
 Donate link: http://stephenharris.info
 Tags: bible,verse,scripture,tinymce,esv,net,kjv,web,asv,wbt,ylt
-Requires at least: 4.1.0
-Tested up to: 4.1.1
+Requires at least: 4.2.0
+Tested up to: 4.2.2
 Stable tag: 0.1.0
 License: GPLv2 or later
 
@@ -11,6 +11,8 @@ Provides a shortcode to insert Bible verses into the body of any page, post or c
 Provides a tinyMCE button to insert the shortcode with live preview.
 
 == Description ==
+
+**Please note that this plug-in requires WordPress 4.2 or later**
 
 Insert Bible Verse provides the following shortcode
 
@@ -52,7 +54,7 @@ minimize page load times.
 
 1. Upload the entire `insert-bible-verse` directory to the `/wp-content/plugins/` directory.
 2. Activate Bible Verse through the 'Plugins' menu in WordPress.
-3. Proceed to **Settings > Writing** to configure the plug-in
+3. Proceed to **Settings > Writing** to configure the plug-in and install translations where appropriate.
 
 == Frequently Asked Questions ==
 
